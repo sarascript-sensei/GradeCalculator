@@ -30,7 +30,7 @@
     <h2 >Notendurchschnitt:
        <!-- <span th:each = "grade : ${listGrade}"><span th:text="${grade.calculateAverage}"></span></span>-->
 
-         <span th:each="grade : ${calculateAverage}"></span> </h2>
+         <span th:text="${calculateAverage}"></span> </h2>
     <br>
     <h5>Neue Noten eingeben: </h5>
     <form action="#" th:action="@{/}" enctype="multipart/form-data" method="POST">

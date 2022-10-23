@@ -21,7 +21,8 @@ public class GradeController {
     public String viewHomePage(Model model) {
 
         model.addAttribute("listGrades", gradeService.listAllGrades());
-        model.addAttribute("calculateAverage",gradeService.calculateAverage());
+        double average = gradeService.calculateAverage();
+        model.addAttribute("calculateAverage",average);
         return "index";
     }
 
