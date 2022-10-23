@@ -27,21 +27,25 @@
         </tr>
         </tbody>
     </table>
+
     <h2 >Notendurchschnitt:
        <!-- <span th:each = "grade : ${listGrade}"><span th:text="${grade.calculateAverage}"></span></span>-->
 
          <span th:text="${calculateAverage}"></span> </h2>
     <br>
     <h5>Neue Noten eingeben: </h5>
-    <form action="#" th:action="@{/}" enctype="multipart/form-data" method="POST">
+    <form action="#" th:action="@{/}" id="myForm1" enctype="multipart/form-data" method="POST">
         <p><b>Vorlesung:</b></p>
         <input type="text" name="lecture" class="form-control mb-4 col-4">
         <p><b>Note:</b></p>
-        <input type="text" name="grade" class="form-control mb-4 col-4">
+        <input type="text" name="grade" id="grade"  class="form-control mb-4 col-4 pdws" pattern="^[1-9]([0-9]{1,2})?(\.[1-9]+)?$" required>
+        <div class="valid-feedback" id="gradeValid">Good job!</div>
+        <div class="invalid-feedback" id="gradeInvalid">Write correct values!</div>
 
-
-        <button type="submit" class="btn btn-info col-2"> Note eintragen</button>
+        <button type="submit" id="submit" class="btn btn-info col-2"> Note eintragen</button>
     </form>
 </div>
+<script type="text/javascript" th:src="@{static/validation.js}"></script>
+
 </body>
 </html>
