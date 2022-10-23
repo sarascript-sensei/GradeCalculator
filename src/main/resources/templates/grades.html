@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Meine kleine Notenverwaltung</title>
+
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container my-2">
+  <h1>Meine kleine Notenverwaltung</h1>
+  <table border="1" class = "table table-striped table-responsive-md">
+    <thead>
+    <tr>
+      <th>Lecture</th>
+      <th>Grade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="grade : ${listGrades}">
+      <td th:text="${grade.lecture}"></td>
+      <td th:text="${grade.grade}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <h2>Notendurchschnitt: </h2>
+  <br>
+  <h5>Neue Noten eingeben: </h5>
+  <form action="#" th:action="@{/addGrade}" th:object="${grade}" method="POST">
+    <p><b>Vorlesung:</b></p>
+    <input type="text" th:field="*{lecture}" class="form-control mb-4 col-4">
+    <p><b>Note:</b></p>
+    <input type="text" th:field="*{grade}" class="form-control mb-4 col-4">
+
+
+    <button type="submit" class="btn btn-info col-2"> Note eintragen</button>
+  </form>
+</div>
+</body>
+</html>
